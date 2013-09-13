@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'twilio-ruby'
+require_relative 'twilio-credentials'
 
 class Takeaway
   def dishes
@@ -33,15 +34,15 @@ class Takeaway
   end
 
   def twilio_client
-    account_sid = 'ACfe1de759bee1087682f75412ba2d84e9'
-    auth_token = 'a36642a3ad953064856e1d0664d1e51f'
+    account_sid = TwilioCredentials::ACCOUNT_SID
+    auth_token = TwilioCredentials::AUTH_TOKEN
     @twilio_client ||= Twilio::REST::Client.new account_sid, auth_token
   end
 
   def send_text(message)
     twilio_client.account.sms.messages.create(
-      :from => '+441924950381',
-      :to => '+447881957811',
+      :from => TwilioCredentials::FROM_NUMBER,
+      :to => TwilioCredentials::TO_NUMBER,
       :body => message)
   end
 end
