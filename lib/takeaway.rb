@@ -3,6 +3,7 @@ require 'twilio-ruby'
 require_relative 'twilio-credentials'
 
 class Takeaway
+  
   def dishes
     { :tonkatsu => 6,
       :chashumen => 5,
@@ -45,4 +46,5 @@ class Takeaway
       :to => TwilioCredentials::TO_NUMBER,
       :body => message)
   end
+
 end
