@@ -26,3 +26,6 @@ end
 
 This code could be improved by writing a `TwilioAPIWrapper` class, so that the
 tests are separated logically from any changes in the API specification.
+
+In addition, the `Takeaway` class could be broken up to make adding further
+functionality would be easier.
